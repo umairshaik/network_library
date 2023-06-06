@@ -1,19 +1,13 @@
 package com.example.network_library.data
 
-import com.example.network.di.NetworkPayloadResponse
-import com.example.network_library.network.model.Movies
-import com.example.network_library.network.retrofit.MiniAppNetworkInstance
+import com.example.network.NetworkPayloadResponse
+import com.example.network_library.data.model.Series
+import com.example.network_library.data.network.retrofit.MiniAppNetworkInstance
 import javax.inject.Inject
 
 class MovieRepo @Inject constructor(private val networkInstance: MiniAppNetworkInstance) {
-    suspend fun getMovies(): NetworkPayloadResponse<List<Movies>> {
+    suspend fun getMovies(): NetworkPayloadResponse<Series> {
         return networkInstance.getMovies()
     }
 }
 
-class MovieUsecase @Inject constructor(private val movieRepo: MovieRepo) {
-
-    suspend fun getMovie(): NetworkPayloadResponse<List<Movies>> {
-        return movieRepo.getMovies()
-    }
-}

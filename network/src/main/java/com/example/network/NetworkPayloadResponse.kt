@@ -1,4 +1,4 @@
-package com.example.network.di
+package com.example.network
 
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type

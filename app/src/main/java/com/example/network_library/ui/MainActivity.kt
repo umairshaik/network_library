@@ -1,10 +1,11 @@
-package com.example.network_library
+package com.example.network_library.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material.Text
+import androidx.compose.runtime.collectAsState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +19,9 @@ class MainActivity : ComponentActivity() {
         viewModel.response()
         setContent {
 
-            Text(text = "Hello World")
+            val uiState = viewModel.data.collectAsState()
+
+            Text(text = uiState.value.toString())
 
         }
     }

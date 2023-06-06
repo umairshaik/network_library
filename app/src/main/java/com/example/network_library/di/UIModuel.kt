@@ -1,14 +1,16 @@
-package com.example.network_library
+package com.example.network_library.di
 
+import com.example.network.di.WithInterceptor
 import com.example.network_library.data.MovieRepo
-import com.example.network_library.data.MovieUsecase
-import com.example.network_library.network.retrofit.MiniAppNetworkInstance
+import com.example.network_library.data.network.retrofit.MiniAppNetworkInstance
+import com.example.network_library.domain.MovieUsecase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 import retrofit2.Retrofit
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -22,7 +24,7 @@ object UIModuel {
 
     @Provides
     @Singleton
-    fun provideMiniAppNetworkInstance(retrofit: Retrofit): MiniAppNetworkInstance {
+    fun provideMiniAppNetworkInstance(@WithInterceptor retrofit: Retrofit): MiniAppNetworkInstance {
         return MiniAppNetworkInstance(retrofit)
     }
 
