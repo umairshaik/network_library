@@ -29,6 +29,6 @@ object UIModuel {
     @Provides
     @Singleton
     fun provideMovieUsecase(movieRepo: MovieRepo): MovieUsecase {
-        return MovieUsecase(movieRepo)
+        return MovieUsecase(movieRepo = movieRepo)
     }
 }

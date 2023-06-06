@@ -44,7 +44,7 @@ object NetworkModule {
     ): Retrofit {
         // This is a builder pattern
         return Retrofit.Builder()
-            .baseUrl("http://www.google.com")//environment base URL
+            .baseUrl("http://localhost:3000")//environment base URL
             .addConverterFactory(converterFactory)
             .callFactory(okHttpCallFactory)
             .addCallAdapterFactory(networkResponseAdapterFactory)
