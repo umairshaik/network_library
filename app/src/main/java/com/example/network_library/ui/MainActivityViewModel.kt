@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.network.NetworkPayloadResponse
+import com.example.network_library.data.model.Movies
 import com.example.network_library.data.model.Resources
 import com.example.network_library.data.model.Series
 import com.example.network_library.domain.MovieUsecase
@@ -20,9 +21,9 @@ class MainActivityViewModel @Inject constructor(
     private val usecase: MovieUsecase,
 ) : ViewModel() {
 
-    val series = Series(resources = arrayListOf(Resources(pageStructureId = "1")))
-    private val _uiState: MutableStateFlow<Series> = MutableStateFlow(series)
-    val data: StateFlow<Series> = _uiState.asStateFlow()
+    val series = Movies()
+    private val _uiState: MutableStateFlow<Movies> = MutableStateFlow(series)
+    val data: StateFlow<Movies> = _uiState.asStateFlow()
 
     fun response() {
         viewModelScope.launch {
